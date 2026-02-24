@@ -6,19 +6,17 @@ function showOnly(id) {
 
   const all = document.getElementById("job-post");
   const interview = document.getElementById("interview");
-  const rejected = document.getElementById("rejected-sections"); // ID ঠিক করা হয়েছে
-
-  // ১. সব সেকশন আগে হাইড করা
+  const rejected = document.getElementById("rejected-sections");
+ 
   all.classList.add("hidden");
   interview.classList.add("hidden");
   rejected.classList.add("hidden");
 
-  // ২. অল বাটন ক্লিক করলে
+
   if (buttonClick === "all") {
     all.classList.remove("hidden");
   }
 
-  // ৩. ইন্টারভিউ বাটন ক্লিক করলে
   if (buttonClick === "interview") {
     interview.classList.remove("hidden");
     const interviewEmpty = document.getElementById("interview-checking");
@@ -33,7 +31,7 @@ function showOnly(id) {
     }
   }
 
-  // ৪. রিজেক্টেড বাটন ক্লিক করলে
+
   if (buttonClick === "rejected") {
     rejected.classList.remove("hidden");
     const rejectedEmpty = document.getElementById("empty-rejected");

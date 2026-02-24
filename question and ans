@@ -1,0 +1,21 @@
+1.getElementById = select specific id name
+getElementByClassNmae=select all the class at a specific name
+querySelector = select All type like id and class but 1st element
+querySelectorAll= select a specific class / id all the element
+
+2 .
+  Const div= document.createElement(“div);
+div.innerText =”sdkjfhds”;
+div.className=”dfd”
+div.id=”dfD”
+
+document.body.appendChild(‘div’)
+5 . when a event happened than it runs thats bubble ups it parent
+
+Instead of adding event listeners to multiple child elements,
+you add ONE event listener to their parent and use event bubbling to handle events.
+
+4 .
+preventDefault() = stop default browser behaviour
+
+stopPropagation()=stopPropagation()
