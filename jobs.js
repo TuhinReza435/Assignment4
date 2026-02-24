@@ -1,100 +1,62 @@
-// সব card select
-document.querySelectorAll(".job-describtion").forEach((card) => {
-  card.addEventListener("click", function (e) {
-    if (e.target.classList.contains("interview-in-jd")) {
-      // btn-container dhora
-      // console.log("HI");
-      const copyCardStatus = e.target
-        .closest(".job-describtion")
-        .querySelector("div > .not-applied-in-jd").parentElement;
-      if (e.target.innerText === copyCardStatus.innerText) return;
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("interview-in-jd")) {
+    const cardContainer = e.target;
+    const statusBtn =
+      e.target.parentElement.parentElement.children[1].innerText;
+    if (cardContainer.innerText === statusBtn) return;
 
-      //console.log('Hwllo')
-      // clone the INTERVIEW button & replace NOT APPLIED button
-      const copyst = e.target.cloneNode(true);
-      copyCardStatus.appendChild(copyst);
-      copyCardStatus.firstElementChild.remove();
+    if (statusBtn === "All") {
+      e.target.parentElement.parentElement.children[5].innerHTML = `
+        <div class="flex gap-4">
+            <button class="btn btn-soft border-green-400 text-green-500 interview-in-jd">
+              INTERVIEW
+            </button>
+        </div>`;
+      e.target.parentElement.parentElement.children[1].innerHTML = "interview";
+      const originalCard = e.target.parentElement.parentElement;
+      const clonedCard = originalCard.cloneNode(true);
+      console.log(clonedCard);
+      const interviewContainer = document.getElementById("contain-interview");
+      interviewContainer.appendChild(clonedCard);
 
-      const newInterview = e.target.closest(".job-describtion");
-      const newinterviewList = document.getElementById("contain-interview");
-      const copyCard = newInterview.cloneNode(true);
-      newinterviewList.appendChild(copyCard);
-
-      const totinterview = document.getElementById(
-        "tot-interview-sjdfnsdkfsdf",
-      );
-      let totValue = parseInt(totinterview.innerText);
-      totValue = totValue + 1;
-      // console.log( totValue)
-      totinterview.innerText = totValue;
+      let interviewNumber =
+        parseInt(
+          document.getElementById("tot-interview-sjdfnsdkfsdf").innerText,
+        ) + 1;
+      document.getElementById("tot-interview-sjdfnsdkfsdf").innerHTML =
+        interviewNumber;
     }
-  });
+  }
+
+  if (e.target.classList.contains("rejected-in-jd")) {
+      const cardContainer = e.target;
+      const statusBtn =e.target.parentElement.parentElement.children[1].innerText;
+      if(cardContainer.innerText===statusBtn)return;
+
+      if (statusBtn === "All") {
+        e.target.parentElement.parentElement.children[5].innerHTML = ` <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>`;
+            e.target.parentElement.parentElement.children[1].innerHTML =
+              "rejected";
+               const originalCard = e.target.parentElement.parentElement;
+               const clonedCard = originalCard.cloneNode(true);
+               const interviewContainer = document.getElementById("contain-rejected");
+               interviewContainer.appendChild(clonedCard);
+               console.log(interviewContainer);
+
+
+               let interviewNumber = parseInt(document.getElementById("rejected-number").innerHTML)+1;
+              
+          
+        
+          document.getElementById("rejected-number").innerHTML = interviewNumber;
+    
+
+      }
+  }
+
 });
 
-document.querySelectorAll(".job-describtion").forEach((card) => {
-  card.addEventListener("click", function (e) {
-    if (e.target.classList.contains("rejected-in-jd")) {
-      const targetBtn = e.target;
-      const cardContainer = targetBtn.closest(".job-describtion");
-
-      const copyCardStatus = cardContainer.querySelector(
-        "div > .not-applied-in-jd",
-      ).parentElement;
-
-      // INTERVIEW button click
-      if (targetBtn.classList.contains("interview-in-jd")) {
-        // clone INTERVIEW button & replace NOT APPLIED
-        const copyst = targetBtn.cloneNode(true);
-        copyCardStatus.appendChild(copyst);
-        copyCardStatus.firstElementChild.remove();
-
-        // copy entire card to interview section
-        const newinterviewList = document.getElementById("contain-interview");
-        const copyCard = cardContainer.cloneNode(true);
-        newinterviewList.appendChild(copyCard);
-      }
-
-      // REJECTED button click
-      if (
-        targetBtn.classList.contains("rejected-in-jd") ||
-        targetBtn.classList.contains("rejected-in-je")
-      ) {
-        // clone REJECTED button & replace NOT APPLIED
-        const copyst = targetBtn.cloneNode(true);
-        copyCardStatus.appendChild(copyst);
-        copyCardStatus.firstElementChild.remove();
-
-        // copy entire card to rejected section
-        const rejectedList = document.getElementById("contain-rejected");
-        const copyCard = cardContainer.cloneNode(true);
-        rejectedList.appendChild(copyCard);
-      }
-
-      const totinterview = document.getElementById("rejected-number");
-      let totValue = parseInt(totinterview.innerText);
-      totValue = totValue + 1;
-
-      console.log(totValue);
-      totinterview.innerText = totValue;
-    }
-  });
-});
-
-document.querySelectorAll(".delete-btn").forEach((card) => {
-  card.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("delete-btn") ||
-      e.target.closest(".delete-btn")
-    ) {
-      const cardContainer = e.target.closest(".job-describtion");
-      if (cardContainer) {
-        cardContainer.remove(); 
-        console.log("Card removed:", cardContainer);
-        let total= document.getElementById("total");
-        let totvalue =parseInt(total.innerText);
-        totvalue--;
-        total.innerHTML=totvalue;
-      }
-    }
-  });
-});

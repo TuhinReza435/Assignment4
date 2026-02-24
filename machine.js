@@ -1,29 +1,28 @@
 function showOnly(id) {
-  const buttonClick = document.getElementById(id).innerText.toLowerCase();
+  const buttonClick = document
+    .getElementById(id)
+    .innerText.toLowerCase()
+    .trim();
 
   const all = document.getElementById("job-post");
   const interview = document.getElementById("interview");
-  const rejected = document.getElementById("rejected");
+  const rejected = document.getElementById("rejected-sections"); // ID ঠিক করা হয়েছে
 
-
+  // ১. সব সেকশন আগে হাইড করা
   all.classList.add("hidden");
   interview.classList.add("hidden");
   rejected.classList.add("hidden");
-  const interviewEmpty = interview.children[0]; 
-  const interviewContain = interview.children[1];
-  interviewEmpty.classList.add('hidden');
-  interviewContain.classList.add('hidden'); 
 
-  const rejectedEmpty = rejected.children[0]; 
-  const rejectedContain = rejected.children[1]; 
-
+  // ২. অল বাটন ক্লিক করলে
   if (buttonClick === "all") {
     all.classList.remove("hidden");
   }
 
+  // ৩. ইন্টারভিউ বাটন ক্লিক করলে
   if (buttonClick === "interview") {
-    interview.classList.remove("hidden"); 
-
+    interview.classList.remove("hidden");
+    const interviewEmpty = document.getElementById("interview-checking");
+    const interviewContain = document.getElementById("contain-interview");
 
     if (interviewContain.children.length > 0) {
       interviewEmpty.classList.add("hidden");
@@ -34,8 +33,12 @@ function showOnly(id) {
     }
   }
 
+  // ৪. রিজেক্টেড বাটন ক্লিক করলে
   if (buttonClick === "rejected") {
-    rejected.classList.remove("hidden"); 
+    rejected.classList.remove("hidden");
+    const rejectedEmpty = document.getElementById("empty-rejected");
+    const rejectedContain = document.getElementById("contain-rejected");
+
     if (rejectedContain.children.length > 0) {
       rejectedEmpty.classList.add("hidden");
       rejectedContain.classList.remove("hidden");
