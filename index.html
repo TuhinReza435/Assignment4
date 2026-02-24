@@ -38,18 +38,25 @@
       <h2 class="font-bold text-3xl">Job Application Tracker</h2>
       <div class="p-6">
         <div class="grid grid-cols-3 gap-5">
-          <div class="bg-white p-5 rounded-xl shadow">
+          <div class="bg-white p-5 rounded-xl shadow cursor-pointer">
             <p>Total</p>
             <h1 id="total" class="text-2xl font-bold">8</h1>
           </div>
 
-          <div class="bg-white p-5 rounded-xl shadow">
-            <p id="interview">Interview</p>
-            <h1 class="text-2xl font-bold text-green-500">0</h1>
+          <div class="bg-white p-5 rounded-xl shadow cursor-pointer">
+            <p>Interview</p>
+            <h1
+              id="tot-interview-sjdfnsdkfsdf"
+              class="text-2xl font-bold text-green-500"
+            >
+              0
+            </h1>
           </div>
-          <div class="bg-white p-5 rounded-xl shadow ">
+          <div class="bg-white p-5 rounded-xl shadow cursor-pointer">
             <p>Rejected</p>
-            <h1 id="rejected" class="text-2xl font-bold text-red-500">0</h1>
+            <h1 id="rejected-number" class="text-2xl font-bold text-red-500">
+              0
+            </h1>
           </div>
         </div>
       </div>
@@ -58,223 +65,310 @@
     <section>
       <div class="flex justify-between px-5 items-center">
         <h1 class="text-3xl font-black pl-3">Available Jobs</h1>
-        <p class="text-gray-500">0 jobs</p>
-
+        <p class="text-gray-500">8 jobs</p>
       </div>
       <div class="flex gap-2 pt-2.5 pl-5">
-        <button id="all-btn" class="btn btn-primary btn-soft text-black">
+        <button
+          id="all-btn"
+          onclick="showOnly('all-btn')"
+          class="btn btn-primary btn-soft text-black"
+        >
           All
         </button>
-        <button id="interview-btn" class="btn btn-primary btn-soft text-black">
+        <button
+          id="interview-btn"
+          onclick="showOnly('interview-btn')"
+          class="btn btn-primary btn-soft text-black"
+        >
           interview
         </button>
-        <button id="rejected-btn" class="btn btn-primary btn-soft text-black">
+        <button
+          id="rejected-btn"
+          onclick="showOnly('rejected-btn')"
+          class="btn btn-primary btn-soft text-black"
+        >
           Rejected
         </button>
       </div>
     </section>
 
-    <section id="job-post" class="mt-5 flex flex-col gap-5 ">
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">Mobile First Corp</h2>
-        <p class="text-gray-500 pb-2">React Native Developer</p>
-        <p class="text-gray-500 pb-3">Remote . Full-time .$130000-$175000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Build Cross-plafrom Mobile Application using React Native. WOrk on
-          product used my millions of users worldwide
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-je"
-          >
-            REJECTED
-          </button>
+    <section id="job-post" class="job-post mt-5 flex flex-col gap-5">
+      <!-- Container for all job cards -->
+      <div id="job-list">
+        <!-- Card 1 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">Mobile First Corp</h2>
+          <p class="text-gray-500 pb-2">React Native Developer</p>
+          <p class="text-gray-500 pb-3">Remote . Full-time .$130000-$175000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Build Cross-platform Mobile Application using React Native. Work on
+            products used by millions of users worldwide.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5 "
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
-      </div>
 
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">TechNova Solutions</h2>
-        <p class="text-gray-500 pb-2">Frontend Developer</p>
-        <p class="text-gray-500 pb-3">Remote . Full-time . $90000-$120000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Develop responsive web applications using React and Tailwind CSS. Work
-          closely with UI/UX teams.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 2 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">TechNova Solutions</h2>
+          <p class="text-gray-500 pb-2">Frontend Developer</p>
+          <p class="text-gray-500 pb-3">Remote . Full-time . $90000-$120000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Develop responsive web applications using React and Tailwind CSS.
+            Work closely with UI/UX teams.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
-
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">CloudCore Inc</h2>
-        <p class="text-gray-500 pb-2">Backend Developer</p>
-        <p class="text-gray-500 pb-3">Onsite . Full-time . $110000-$150000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Build scalable APIs using Node.js and MongoDB. Maintain server-side
-          logic and performance.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 3 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">CloudCore Inc</h2>
+          <p class="text-gray-500 pb-2">Backend Developer</p>
+          <p class="text-gray-500 pb-3">Onsite . Full-time . $110000-$150000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Build scalable APIs using Node.js and MongoDB. Maintain server-side
+            logic and performance.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
-
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">AI Vision Labs</h2>
-        <p class="text-gray-500 pb-2">Machine Learning Engineer</p>
-        <p class="text-gray-500 pb-3">Remote . Contract . $120000-$160000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Design and train ML models for real-world applications. Work with
-          large datasets and AI systems.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 4 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">AI Vision Labs</h2>
+          <p class="text-gray-500 pb-2">Machine Learning Engineer</p>
+          <p class="text-gray-500 pb-3">Remote . Contract . $120000-$160000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Design and train ML models for real-world applications. Work with
+            large datasets and AI systems.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
-
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">FinTech Global</h2>
-        <p class="text-gray-500 pb-2">Full Stack Developer</p>
-        <p class="text-gray-500 pb-3">Hybrid . Full-time . $100000-$140000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Develop and maintain financial applications using MERN stack
-          technologies.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 5 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">FinTech Global</h2>
+          <p class="text-gray-500 pb-2">Full Stack Developer</p>
+          <p class="text-gray-500 pb-3">Hybrid . Full-time . $100000-$140000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Develop and maintain financial applications using MERN stack
+            technologies.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
-
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">CyberSecure Ltd</h2>
-        <p class="text-gray-500 pb-2">Cybersecurity Analyst</p>
-        <p class="text-gray-500 pb-3">Onsite . Full-time . $95000-$130000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Monitor security threats, perform vulnerability assessments, and
-          secure company infrastructure.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 6 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">CyberSecure Ltd</h2>
+          <p class="text-gray-500 pb-2">Cybersecurity Analyst</p>
+          <p class="text-gray-500 pb-3">Onsite . Full-time . $95000-$130000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Monitor security threats, perform vulnerability assessments, and
+            secure company infrastructure.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
- 
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">DataSphere Analytics</h2>
-        <p class="text-gray-500 pb-2">Data Analyst</p>
-        <p class="text-gray-500 pb-3">Remote . Full-time . $85000-$110000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Analyze large datasets to provide business insights and create
-          meaningful reports.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 7 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">DataSphere Analytics</h2>
+          <p class="text-gray-500 pb-2">Data Analyst</p>
+          <p class="text-gray-500 pb-3">Remote . Full-time . $85000-$110000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Analyze large datasets to provide business insights and create
+            meaningful reports.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
 
-      </div>
-
-      <div class="bg-white rounded shadow px-4 py-4 job-describtion relative">
-        <h2 class="font-bold text-2xl">NextGen Apps</h2>
-        <p class="text-gray-500 pb-2">Flutter Developer</p>
-        <p class="text-gray-500 pb-3">Remote . Full-time . $95000-$125000</p>
-        <button class="btn btn-soft pb-3 not-applied-in-jd">NOT APPLIED</button>
-        <p class="pb-3">
-          Build high-performance cross-platform mobile apps using Flutter and
-          Dart.
-        </p>
-        <div class="flex gap-4">
-          <button
-            class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
-          >
-            INTERVIEW
-          </button>
-          <button
-            class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
-          >
-            REJECTED
-          </button>
+        <!-- Card 8 -->
+        <div class="job-describtion bg-white rounded shadow px-4 py-4 relative">
+          <h2 class="font-bold text-2xl">NextGen Apps</h2>
+          <p class="text-gray-500 pb-2">Flutter Developer</p>
+          <p class="text-gray-500 pb-3">Remote . Full-time . $95000-$125000</p>
+          <div class="btn-status">
+            <button class="btn btn-soft pb-3 not-applied-in-jd">
+              NOT APPLIED
+            </button>
+          </div>
+          <p class="pb-3">
+            Build high-performance cross-platform mobile apps using Flutter and
+            Dart.
+          </p>
+          <div class="flex gap-4">
+            <button
+              class="btn btn-soft border-green-400 text-green-500 interview-in-jd"
+            >
+              INTERVIEW
+            </button>
+            <button
+              class="btn btn-soft border-red-400 text-red-700 rejected-in-jd"
+            >
+              REJECTED
+            </button>
+          </div>
+          <span class="delete-btn absolute top-3 right-5"
+            ><i class="fa-solid fa-trash-can"></i
+          ></span>
         </div>
-        <span class="delete-btn absolute top-3 right-5"><i class="fa-solid fa-trash-can"></i></span>
-
       </div>
-
-
     </section>
+
+    <section id="interview" class="interview-sections">
+      <div
+        id="interview-checking"
+        class="empty-interview h-[500px] shadow bg-white flex justify-center items-center flex-col gap-2.5 my-[20px] interivewsection hidden"
+      >
+        <i class="fa-regular fa-clipboard fa-2x"></i>
+        <h2 class="font-bold">No Jobs available</h2>
+        <p class="text-gray-500">Click back soon for new job opportunites</p>
+      </div>
+      <div id="contain-interview" class="contain-interview hidden"></div>
+    </section>
+
+    <section id="rejected" class="rejected sections">
+      <div
+        id="empty-rejected"
+        class="h-[500px] shadow bg-white flex justify-center items-center flex-col gap-2.5 my-[20px] rejectedsection hidden"
+      >
+        <i class="fa-regular fa-clipboard fa-2x"></i>
+        <h2 class="font-bold">No Jobs available</h2>
+        <p class="text-gray-500">Click back soon for new job opportunites</p>
+      </div>
+      <div id="contain-rejected" class="contain-rejected hidden"></div>
+    </section>
+    <script src="./machine.js"></script>
+    <script src="./jobs.js"></script>
   </body>
 </html>
